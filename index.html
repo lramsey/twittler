@@ -5,7 +5,11 @@
     <script src="data_generator.js"></script>
   </head>
   <body>
-    <button>New Tweets</button>
+    <button id='feed'>new tweets</button>
+    <button id='profile'>shawndrost</button>
+    <button id='profile'>sharksforcheap</button>
+    <button id='profile'>mracus</button>
+    <button id='profile'>douglascalhoun</button>
    <span>
     <script>
 
@@ -22,7 +26,7 @@
           index -= 1;
         }
 
-        $('button').on('click', function(){
+        $('#feed').on('click', function(){
           $span.html('');
 
           var index = streams.home.length - 1;
@@ -35,6 +39,20 @@
             index -= 1;
           }
         });
+
+        $('button').nextUntil().on('click', function(){
+          $('span').children().remove();
+          var name = $(this).text();
+          var profile = streams.users[name]
+          var index = profile.length -1;
+          while(index >= 0){
+            var tweet = profile[index];
+            var $tweet = $('<div></div>');
+            $tweet.text('@' + tweet.user + ': ' + tweet.message + ". created at " + tweet.created_at);
+            $tweet.appendTo($span);
+            index -= 1;
+          }
+        })
 
       });
 
