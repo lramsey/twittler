@@ -33,7 +33,7 @@ $(document).ready(function(){
 
   profileClick();
 
-  $('button').on('click', function(){
+  $('input').on('click', function(){
     $span.html('');
     var index = streams.home.length - 1;
     while(index >= 0){
@@ -43,5 +43,5 @@ $(document).ready(function(){
     }
     profileClick();
   });
-  
+
 });
