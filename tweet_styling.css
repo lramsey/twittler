@@ -1,0 +1,14 @@
+b {
+    color: blue;
+}
+body {
+    text-align: center;
+}
+input {
+    width: 160px;
+    height: 40px;
+}
+span {
+    line-height: 40px;
+    text-align: justify;
+}
