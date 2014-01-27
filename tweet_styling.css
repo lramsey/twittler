@@ -1,8 +1,10 @@
-b {
-    color: blue;
-}
 body {
     text-align: center;
+    background-color: gold; 
+}
+h1 {
+    size: 50px;
+    color: blue;
 }
 input {
     width: 160px;
@@ -10,5 +12,8 @@ input {
 }
 span {
     line-height: 40px;
-    text-align: justify;
+    text-align: left;
+}
+b {
+    color: blue;
 }

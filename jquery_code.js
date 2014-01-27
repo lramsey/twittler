@@ -11,6 +11,16 @@ $(document).ready(function(){
     $tweet.appendTo($span);
   };
 
+  var headerClick = function() {
+    $('h1').on('click', function() {
+      var index = streams.home.length - 1;
+      while (index >= 0){
+        posting(streams.home[index]);
+        index -= 1;
+      }
+    });
+  };
+
   var profileClick = function() {
     $('span').find('b').on('click', function(){
       $('span').children().remove();
@@ -21,6 +31,7 @@ $(document).ready(function(){
         posting(profile[profileIndex]);
         profileIndex -= 1;
       }
+      headerClick();
       profileClick();
     });
   };
@@ -31,6 +42,7 @@ $(document).ready(function(){
     index -= 1;
   }
 
+  headerClick();
   profileClick();
 
   $('input').on('click', function(){
@@ -41,6 +53,7 @@ $(document).ready(function(){
       $('span').children().first().next().next().next().next().next().next().next().next().next().next().next().next().next().next().next().next().next().next().next().next().remove();
       index -= 1;
     }
+    headerClick();
     profileClick();
   });
 
