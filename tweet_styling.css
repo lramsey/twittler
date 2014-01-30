@@ -1,12 +1,13 @@
 body {
     text-align: center;
-    background-color: gold; 
+    background-color: beige; 
 }
 h1 {
     size: 50px;
     color: blue;
 }
 input {
+    color: blue;
     width: 160px;
     height: 40px;
 }

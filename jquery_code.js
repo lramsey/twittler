@@ -18,6 +18,8 @@ $(document).ready(function(){
         posting(streams.home[index]);
         index -= 1;
       }
+      headerClick();
+      profileClick();
     });
   };
 
