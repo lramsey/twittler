@@ -1,19 +1,18 @@
 $(document).ready(function(){
         
-  var $span = $('span');
-  $span.html('');
+  var $tweetzone = $('.tweetzone');
+  $tweetzone.html('');
         
   var posting = function(item){
     var tweet = item;
     var $tweet = $('<div></div>');
     var text = '<b>@' +tweet.user +'</b>' + ': ' + tweet.message + ". created on " + tweet.created_at;
     var $text = $tweet.append(text);
-    $tweet.appendTo($span);
+    $tweet.appendTo($tweetzone);
   };
 
-  var headerClick = function() {
-    $('h1').on('click', function() {
-      $('span').children().remove();
+  var home = function() {
+      $('.tweetzone').children().remove();
       var index = streams.home.length - 1;
       while (index >= 0){
         posting(streams.home[index]);
@@ -23,13 +22,20 @@ $(document).ready(function(){
       $('input').removeClass('profile');
       profileClick();
       button(streams.home);
-    });
+      $('h1').text("Welcome to Twittler!");
+    };
+
+  var headerClick = function() {
+    $('h1').on('click', profilePage);
   };
 
-  var profileClick = function() {
-    $('span').find('b').on('click', function(){
-      $('span').children().remove();
+  var profilePage = function(){
+      $('.tweetzone').children().remove();
       var name = $(this).text().slice(1);
+      if(name === "ome" || name === 'elcome to Twittler!') {
+        home();
+      }
+      else{
       var profile = streams.users[name];
       var profileIndex = profile.length -1;
       while(profileIndex >= 0){
@@ -40,16 +46,25 @@ $(document).ready(function(){
       $('input').addClass('profile');
       profileClick();
       button(profile);
-    });
+      $('h1').text('@' + name);
+    }
+    };
+
+  var profileClick = function() {
+    $('.tweetzone').find('b').on('click', profilePage);
+  };
+
+  var sidebar = function() {
+    $('.sidebar').find('a').on('click', profilePage);
   };
 
   var button = function(page){
     $('input').on('click', function(){
-      $span.html('');
+      $tweetzone.html('');
       var index = page.length - 1;
       while(index >= 0){
         posting(page[index]);
-        $('span').children().first().next().next().next().next().next().next().next().next().next().next().remove();
+        $('.tweetzone').children().first().next().next().next().next().next().next().next().next().next().next().remove();
         index -= 1;
       }
       profileClick();
@@ -66,5 +81,6 @@ $(document).ready(function(){
   headerClick();
   profileClick();
   button(streams.home);
+  sidebar();
   
 });

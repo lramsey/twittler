@@ -6,6 +6,14 @@ h1 {
     size: 50px;
     color: blue;
 }
+.sidebar {
+    width: 13%;
+    margin-left: 2%;
+    text-align: left;
+    float: left;
+    line-height: 40px;
+    color: blue;
+}
 input {
     color: blue;
     width: 160px;
@@ -15,12 +23,10 @@ input {
 .profile {
     width: 280px;
 }
-span {
+.tweetzone {
     line-height: 40px;
     text-align: left;
-}
-div {
-    margin-left: 5%;
+    margin-left: 17%;
 }
 b {
     color: blue;
