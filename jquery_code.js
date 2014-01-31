@@ -36,18 +36,18 @@ $(document).ready(function(){
         home();
       }
       else{
-      var profile = streams.users[name];
-      var profileIndex = profile.length -1;
-      while(profileIndex >= 0){
-        posting(profile[profileIndex]);
-        profileIndex -= 1;
+        var profile = streams.users[name];
+        var profileIndex = profile.length -1;
+        while(profileIndex >= 0){
+          posting(profile[profileIndex]);
+          profileIndex -= 1;
+        }
+        $('input').val("@" + name + "'s 10 Newest Tweets");
+        $('input').addClass('profile');
+        profileClick();
+        button(profile);
+        $('h1').text('@' + name);
       }
-      $('input').val("@" + name + "'s 10 Newest Tweets");
-      $('input').addClass('profile');
-      profileClick();
-      button(profile);
-      $('h1').text('@' + name);
-    }
     };
 
   var profileClick = function() {
